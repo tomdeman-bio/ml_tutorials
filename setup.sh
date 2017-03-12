@@ -1,14 +1,26 @@
-!#/bin/bash
+!#/usr/bin/env bash
 
-wget https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh
-chmod u+x Anaconda2-4.3.1-Linux-x86_64.sh
-./Anaconda2-4.3.1-Linux-x86_64.sh -b
+case "$(uname -s)" in
 
-# Create the ML_Tutorial environment
-conda create –f ML_Tutorial.yml
+	Darwin)
+        	echo 'Mac OS X'
+		wget https://repo.continuum.io/archive/Anaconda2-4.3.1-MacOSX-x86_64.sh
+		chmod u+x Anaconda2-4.3.1-MacOSX-x86_64.sh
+		./Anaconda2-4.3.1-MacOSX-x86_64.sh
+		;;
+	Linux)
+		echo 'Linux'
+		wget https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh
+		chmod u+x Anaconda2-4.3.1-Linux-x86_64.sh
+		./Anaconda2-4.3.1-Linux-x86_64.sh -b
+		;;
 
-# Activate the environment
-source activate ML_Tutorial
+	CYGWIN*|MINGW32*|MSYS*)
+		echo 'MS Windows'
+		echo 'Instructions: '
+		;;
+	*)
+		echo 'can not determine OS' 
+		;;
+esac
 
-# Close the environment once done
-# source deactivate
