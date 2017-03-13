@@ -1,5 +1,6 @@
 Examples of Ensemble Learning
 Jim Davis
-• Random Forest
-• Ada Boost
-
+Random Forest
+AdaBoost
+Gradient Boosting
+Extra Trees
