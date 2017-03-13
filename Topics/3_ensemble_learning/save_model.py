@@ -3,10 +3,13 @@
 # http://scikit-learn.org/stable/modules/model_persistence.html
 # http://scikit-learn.org/stable/tutorial/statistical_inference/supervised_learning.html
 
+from __future__ import print_function
 import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.ensemble import (RandomForestClassifier)
-from sklearn.cross_validation import train_test_split
+#from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
+
 import pickle
 
 n_estimators = 10
@@ -30,7 +33,7 @@ X = X1[-140:]
 y = y1[-140:]
 
 # Get training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.5, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=0)
 
 #Generate the RF model
 RF = RandomForestClassifier(n_estimators=n_estimators)
