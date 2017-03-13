@@ -3,11 +3,13 @@
 # http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_iris.html
 # http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html
 
+from __future__ import print_function
 import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.ensemble import (RandomForestClassifier, ExtraTreesClassifier, AdaBoostClassifier, GradientBoostingClassifier)
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.cross_validation import train_test_split
+#from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 
 n_estimators = 10
 iris = load_iris()
