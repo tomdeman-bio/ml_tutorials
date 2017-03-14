@@ -1,0 +1,57 @@
+1. Please bring a laptop to the tutorial.
+2. Prior to Wednesday, please install Anaconda into your home or user directory. Downloadable installers are available here.
+
+	a. Mac
+	
+	https://repo.continuum.io/archive/Anaconda2-4.3.1-MacOSX-x86_64.sh
+	./Anaconda2-4.3.1-MacOSX-x86_64.sh
+	source ~/.bash_profile
+
+	tsb$ which python
+	/Users/tsb/anaconda2/bin/python
+
+	b. Linux
+
+	https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh
+        ./Anaconda2-4.3.1-MacOSX-x86_64.sh
+        source ~/.bash_profile
+
+	tsb$ which python
+	/Users/tsb/anaconda2/bin/python
+
+	c. Windows
+
+	https://repo.continuum.io/archive/Anaconda2-4.3.1-Windows-x86_64.exe
+	
+	1. Download the installer with a web browser.
+	2. Double-click the .exe file to install Anaconda and follow the instructions on the screen
+
+
+
+More Detailed Mac Protocol
+
+# Set up your python environment
+# ------------------------------
+
+# Download the Anaconda installer
+curl -o Anaconda2-4.3.1-MacOSX-x86_64.sh https://repo.continuum.io/archive/Anaconda2-4.3.1-MacOSX-x86_64.sh
+
+# Make the installer executable
+chmod u+x ./Anaconda2-4.3.1-MacOSX-x86_64.sh 
+
+# Run the installer, accepting the defaults.
+./Anaconda2-4.3.1-MacOSX-x86_64.sh
+
+# Source the .bash_profile to add anaconda2/bin to your path
+source ~/.bash_profile
+
+# Install an additonal module not shipped with Anaconda
+conda install -c glemaitre imbalanced-learn
+
+# Download the source files for the tutorial
+git clone https://github.com/brettin/ml_tutorials
+
+# Run the first tutorial example
+cd ml_tutorials/Topics/1_first_example/
+python linear_regression.py 
+ 
