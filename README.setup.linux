@@ -16,6 +16,7 @@ source ~/.bash_profile
 
 # Install an additonal module not shipped with Anaconda
 conda install -c glemaitre imbalanced-learn
+# conda install -c anaconda pyqt=4.11.4
 
 # Download the source files for the tutorial
 git clone https://github.com/brettin/ml_tutorials
@@ -23,4 +24,3 @@ git clone https://github.com/brettin/ml_tutorials
 # Run the first tutorial example
 cd ml_tutorials/Topics/1_first_example/
 python linear_regression.py 
- 
