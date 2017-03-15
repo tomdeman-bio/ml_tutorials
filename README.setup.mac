@@ -15,6 +15,9 @@ source ~/.bash_profile
 
 # Install an additonal module not shipped with Anaconda
 conda install -c glemaitre imbalanced-learn
+conda install -c conda-forge tensorflow
+pip install git+git://github.com/Theano/Theano.git
+pip install git+git://github.com/fchollet/keras.git
 
 # Download the source files for the tutorial
 git clone https://github.com/brettin/ml_tutorials
