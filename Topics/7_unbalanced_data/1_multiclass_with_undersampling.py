@@ -11,7 +11,7 @@ from imblearn.under_sampling import RandomUnderSampler
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
-import graphs as g
+import graph as g
 
 RANDOM_STATE = 42
 
