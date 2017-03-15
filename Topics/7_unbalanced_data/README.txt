@@ -22,6 +22,18 @@ Undersampling
   Tomek links are pairs of instances of opposite classes who are their
   own nearest neightbors.
 
+  NearMiss-1      selects majority examples that are close to some of the
+  minority examples. Selects examples whose average distances to three
+  closest minority examples are the smallest.
+
+  NearMiss-2      selects majority examples that are close to all majority
+  examples. examples are selected based on average distance to three
+  farthest majority examples.
+
+  NearMiss-3      selects a number of closest majority examples for each
+  majority example. guarentees every majority example is surrounded by
+  some majority examples.
+
 Oversampling
 
   Synthesizing new examples: SMOTE
