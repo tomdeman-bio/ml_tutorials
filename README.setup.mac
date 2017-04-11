@@ -12,6 +12,7 @@ chmod u+x ./Anaconda2-4.3.1-MacOSX-x86_64.sh
 
 # Source the .bash_profile to add anaconda2/bin to your path
 source ~/.bash_profile
+export PATH=/<user_dir>/anaconda2/bin:$PATH
 
 # Install an additonal module not shipped with Anaconda
 conda install -c glemaitre imbalanced-learn
