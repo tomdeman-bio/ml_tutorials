@@ -22,9 +22,6 @@ X = np.sort(5 * np.random.rand(40, 1), axis=0)
 XX = np.linspace(0, 5, 500)[:, np.newaxis]
 y = np.sin(X).ravel()
 
-# Add noise to targets
-y[::5] += 1 * (0.5 - np.random.rand(8))
-
 print('train X')
 print(X)
 print('train y')

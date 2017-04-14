@@ -18,7 +18,6 @@ pause()
 plt.scatter(X[:, 0], X[:, 1], c=y, s=50)
 plt.savefig('blob.png', bbox_inches='tight')
 
-
 # "Support Vector Classifier"
 from sklearn.svm import SVC
 clf = SVC(kernel='linear')
