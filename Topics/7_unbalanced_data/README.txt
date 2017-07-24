@@ -64,3 +64,21 @@ False Positives are when something is predicted to be A but in fact is B
 False Negatives are when something is predicted to be B but in fact is A
 
 
+
+Toy Example Codes in this Directory:
+
+1_multiclass_with_undersampling.py
+
+python 1_multiclass_with_undersampling.py X.little.unb y.little.unb
+
+This demonstrates fitting a LinearSVC model with unbalanced data and with data balanced using the undersampling NearMiss 2, Tomek Links, and Random Undersampling algorithms. Input is x.little.unb and y.little.unb. 
+
+2_multiclass_with_oversampling.py
+
+python 2_multiclass_with_oversampling.py X.little.unb y.little.unb
+
+This demonstrates fitting a LinearSVC model with unbalanced data and with data balanced using the oversampling SMOTE "regular" and SMOTE "SVM" algorithms. Input is x.little.unb and y.little.unb. 
+
+3_binaryclass_with_undersampling.py
+
+python 3_binaryclass_with_undersampling.py 
