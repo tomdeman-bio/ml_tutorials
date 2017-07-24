@@ -1,4 +1,5 @@
 import sys
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import interp
@@ -27,7 +28,8 @@ cv = StratifiedKFold(n_splits=3)
 
 # Load the data from tab delimited files
 if (len(sys.argv) != 3):
-	print 'requires arg1=X_fname and arg2=y_fname'
+	print 'requires: arg1=X_fname and arg2=y_fname'
+	print 'usage: python ',os.path.basename(__file__), 'X.binary y.binary'
 	sys.exit(1)
 			                         
 X_fname = sys.argv[1] 
