@@ -53,7 +53,7 @@ np.set_printoptions(precision=2)
 plt.figure()
 g.plot_confusion_matrix(cnf_matrix, classes=class_names,
 	title='Confusion matrix, without Undersampling')
-plt.show()
+plt.draw()
 
 # Undersample the data using NearMiss
 nm2 = NearMiss(version=2)
@@ -74,7 +74,7 @@ np.set_printoptions(precision=2)
 plt.figure()
 g.plot_confusion_matrix(cnf_matrix, classes=class_names,
 		        title='Confusion matrix, NearMiss2 undersampling')
-plt.show()
+plt.draw()
 
 # Undersample the data using TomekLinks
 tl = TomekLinks()
@@ -95,7 +95,7 @@ np.set_printoptions(precision=2)
 plt.figure()
 g.plot_confusion_matrix(cnf_matrix, classes=class_names,
 		title='Confusion matrix, TomekLinks undersampling')
-plt.show()
+plt.draw()
 
 # Undersample the data using RandomUndersampler
 rus = RandomUnderSampler()
@@ -116,6 +116,6 @@ np.set_printoptions(precision=2)
 plt.figure()
 g.plot_confusion_matrix(cnf_matrix, classes=class_names,
 		title='Confusion matrix, Random undersampling')
+plt.draw()
+
 plt.show()
-
-

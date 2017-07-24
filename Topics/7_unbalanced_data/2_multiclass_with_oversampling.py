@@ -51,10 +51,10 @@ cnf_matrix = cnf_matrix = confusion_matrix(y_test, svc.predict(X_test))
 np.set_printoptions(precision=2)
 plt.figure()
 g.plot_confusion_matrix(cnf_matrix, classes=class_names,
-	title='Confusion matrix, without Undersampling')
-plt.show()
+	title='Confusion matrix, without Oversampling')
+plt.draw()
 
-# Oversample the data using SMOTE
+# Oversample the data using SMOTE regular
 sm = SMOTE(kind='regular')
 X_train_resampled, y_train_resampled = sm.fit_sample(X_train, y_train)
 
@@ -72,8 +72,8 @@ cnf_matrix = cnf_matrix = confusion_matrix(y_test, svc.predict(X_test))
 np.set_printoptions(precision=2)
 plt.figure()
 g.plot_confusion_matrix(cnf_matrix, classes=class_names,
-		        title='Confusion matrix, NearMiss2 undersampling')
-plt.show()
+		        title='Confusion matrix, SMOTE regular oversampling')
+plt.draw()
 
 # Oversample using SMOTE SVM
 sm = SMOTE(kind='svm')
@@ -93,5 +93,7 @@ cnf_matrix = cnf_matrix = confusion_matrix(y_test, svc.predict(X_test))
 np.set_printoptions(precision=2)
 plt.figure()
 g.plot_confusion_matrix(cnf_matrix, classes=class_names,
-		title='Confusion matrix, TomekLinks undersampling')
+		title='Confusion matrix, SMOTE SVM Oversampling')
+plt.draw()
+
 plt.show()
