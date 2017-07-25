@@ -9,7 +9,7 @@ a = 0.5
 b = 1.0
 
 # x from 0 to 10
-x = 30 * np.random.random(20)
+x = 30 * np.random.random(1000)
 print('x')
 print(x)
 pause()
