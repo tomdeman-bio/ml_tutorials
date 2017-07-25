@@ -1,4 +1,5 @@
 import sys
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import interp
@@ -14,7 +15,10 @@ from imblearn.pipeline import make_pipeline
 LW = 2
 RANDOM_STATE = 42
 
-# A dummy sampler that returns the original X,y
+# A dummy sampler that returns the original X,y. This is needed
+# for the pipeline to call for the case where no balancing is
+# performed. The Sampler must provide sample, fit and fit_sample
+# methods to the pipeline.
 class DummySampler(object):
     def sample(self, X, y):
         return X, y
@@ -24,11 +28,14 @@ class DummySampler(object):
         return self.sample(X, y)
 
 
+# Set up for cross validation.
 cv = StratifiedKFold(n_splits=3)
 
-# Load the data from tab delimited files
+
+# Load the data from tab delimited files.
 if (len(sys.argv) != 3):
-	print 'requires arg1=X_fname and arg2=y_fname'
+	print 'requires: arg1=X_fname and arg2=y_fname'
+	print 'usage: python ',os.path.basename(__file__), 'X.binary y.binary'
 	sys.exit(1)
 			                         
 X_fname = sys.argv[1] 
@@ -42,6 +49,7 @@ print "X ", X.shape
 print "y ", y.shape
 print "class_names ", class_names
 
+
 # Create the training and test data
 X_train, X_test, y_train, y_test = train_test_split(X, y,
 		test_size=0.33, random_state=RANDOM_STATE)
@@ -50,10 +58,11 @@ print "X_train ", X_train.shape
 print "y_train ", y_train.shape
 
 
-
 # Classifier implementing the k-nearest neighbors vote
 classifier = ['3NN', neighbors.KNeighborsClassifier(3)]
 
+
+# Undersamplers for the unbalanced data.
 samplers = [
 	['Standard', DummySampler()],
 	['RUS', RandomUnderSampler(random_state=RANDOM_STATE)],
@@ -61,6 +70,7 @@ samplers = [
 	['TOMEKLINK', TomekLinks()]]
 
 
+# Construct a pipeline
 pipelines = [
     ['{}-{}'.format(sampler[0], classifier[0]),
      make_pipeline(sampler[1], classifier[1])]
@@ -68,6 +78,7 @@ pipelines = [
 ]
 
 
+# Run the pipeline and plot the results
 for name, pipeline in pipelines:
     mean_tpr = 0.0
     mean_fpr = np.linspace(0, 1, 100)
@@ -93,6 +104,7 @@ for name, pipeline in pipelines:
 		    + ' features')
     plt.legend(loc="lower right")
 
+# Add the random case to the plot.
 plt.plot([0, 1], [0, 1], linestyle='--', lw=LW, color='k',
          label='Luck')
 
